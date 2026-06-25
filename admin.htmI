@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CEO Panel - Jashbeerdeep81</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; background: #000; color: white; margin: 0; padding: 20px; }
+    .login { max-width: 300px; margin: 100px auto; text-align: center; }
+    .login input { width: 100%; padding: 12px; margin: 10px 0; background: #1a1a1a; border: 1px solid #00ff88; color: white; border-radius: 5px; }
+    .login button { width: 100%; padding: 12px; background: #00ff88; color: black; border: none; border-radius: 5px; font-weight: bold; }
+    .panel { display: none; max-width: 600px; margin: auto; }
+    .header { color: #00ff88; text-align: center; border-bottom: 1px solid #00ff88; padding-bottom: 15px; }
+    .upload-box { background: #1a1a1a; padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid #333; }
+    .upload-box h3 { color: #00ff88; margin-top: 0; }
+    .upload-box input, .upload-box select { width: 100%; padding: 10px; margin: 8px 0; background: #000; border: 1px solid #333; color: white; border-radius: 5px; }
+    .upload-btn { background: #00ff88; color: black; padding: 12px; border: none; border-radius: 5px; font-weight: bold; width: 100%; }
+    #msg { color: #00ff88; text-align: center; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="login" id="loginBox">
+    <h2 style="color: #00ff88;">🔒 CEO LOGIN</h2>
+    <input type="password" id="pass" placeholder="Enter Password">
+    <button onclick="checkPass()">Login</button>
+    <p id="error" style="color: red;"></p>
+  </div>
+
+  <div class="panel" id="panelBox">
+    <div class="header">
+      <h1>💎 CEO PANEL - JASHBEERDEEP81</h1>
+      <p>Upload New Designs</p>
+    </div>
+
+    <div class="upload-box">
+      <h3>Upload New Work</h3>
+      <select id="category">
+        <option>BGMI</option>
+        <option>Free Fire</option>
+        <option>Shadi Card</option>
+        <option>Business Card</option>
+        <option>Anime</option>
+      </select>
+      <input type="text" id="title" placeholder="Design Title">
+      <input type="text" id="price" placeholder="Price - Rs.">
+      <input type="file" id="file">
+      <button class="upload-btn" onclick="upload()">UPLOAD DESIGN</button>
+      <p id="msg"></p>
+    </div>
+  </div>
+
+<script>
+function checkPass() {
+  let p = document.getElementById('pass').value;
+  if(p === '@JASHBEER04') {
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('panelBox').style.display = 'block';
+  } else {
+    document.getElementById('error').innerText = 'Wrong Password!';
+  }
+}
+function upload() {
+  let cat = document.getElementById('category').value;
+  let title = document.getElementById('title').value;
+  if(title === '') {
+    document.getElementById('msg').innerText = 'Title daal bhai!';
+    return;
+  }
+  document.getElementById('msg').innerText = '✅ ' + cat + ' - ' + title + ' Uploaded! Note kar le.';
+}
+</script>
+</body>
+</html>
